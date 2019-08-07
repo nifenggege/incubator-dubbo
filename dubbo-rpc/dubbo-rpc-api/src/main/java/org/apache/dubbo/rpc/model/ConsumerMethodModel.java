@@ -90,6 +90,17 @@ public class ConsumerMethodModel {
     }
 
 
+    /**
+     * 异步方法对象 三对
+     * oninvokeInstance 异步调用时的对象
+     * oninvokeMethod 异步调用时的方法
+     *
+     * onreturnInstace 异步调用返回时调用对象
+     * onreturnMethod 异步调用返回时调用的方法
+     *
+     * onthrowInstance 异步调用抛出异常时调用的对象
+     * onthrowMethod 异步调用抛出异常时调用的方法
+     */
     public static class AsyncMethodInfo {
         // callback instance when async-call is invoked
         private Object oninvokeInstance;
