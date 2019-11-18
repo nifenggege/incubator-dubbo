@@ -94,13 +94,13 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
      * The {@link Filter} when the provider side exposed a service or the customer side references a remote service used,
      * if there are more than one, you can use commas to separate them
      */
-    protected String filter;
+    protected String filter;//多个使用,分割。consumer与provider在调用服务的时候使用
 
     /**
      * The Listener when the provider side exposes a service or the customer side references a remote service used
      * if there are more than one, you can use commas to separate them
      */
-    protected String listener;
+    protected String listener;//多个使用,分割
 
     /**
      * The owner of the service providers
@@ -110,7 +110,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
     /**
      * Connection limits, 0 means shared connection, otherwise it defines the connections delegated to the current service
      */
-    protected Integer connections;
+    protected Integer connections; //连接限制，0嗲表共享
 
     /**
      * The layer of service providers

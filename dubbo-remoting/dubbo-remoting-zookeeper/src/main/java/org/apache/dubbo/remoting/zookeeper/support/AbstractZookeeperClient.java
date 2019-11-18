@@ -54,13 +54,21 @@ public abstract class AbstractZookeeperClient<TargetDataListener, TargetChildLis
         return url;
     }
 
+    /**
+     * 临时节点如果存在的情况下，也可以继续创建？理论是什么
+     * @param path
+     * @param ephemeral
+     */
     @Override
     public void create(String path, boolean ephemeral) {
+        //为什么只有非临时节点才会检查path是否存在？
         if (!ephemeral) {
             if (checkExists(path)) {
                 return;
             }
         }
+
+        //创建所有的父节点
         int i = path.lastIndexOf('/');
         if (i > 0) {
             create(path.substring(0, i), false);

@@ -262,12 +262,12 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
     public void checkAndUpdateSubConfigs() {
         // Use default configs defined explicitly on global configs
-        completeCompoundConfigs();
+        completeCompoundConfigs(); //配置注册信息与monitor信息，这两个信息如果没有配置就去其他的配置中找到相关的配置进行赋值
         // Config Center should always being started first.
-        startConfigCenter();
-        checkDefault();
-        checkApplication();
-        checkRegistry();
+        startConfigCenter(); //加载对应的配，比如Protocol， Application等，猜测
+        checkDefault(); //如果没有provider，就生成一个默认的provider配置
+        checkApplication(); //检查Application，必须要有一个Application对象，没有的话就创建一个默认的
+        checkRegistry(); //
         checkProtocol();
         this.refresh();
         checkMetadataReport();
